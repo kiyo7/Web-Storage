@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storage</title>
+  </head>
+  <body>
+    <h1>StoragePractice</h1>
+    <div id="list"></div>
+    <script>
+      (() => {
+        const list = document.getElementById('list');
+        if (typeof Storage == 'undefined') {
+          alert('Web Storage Not Supported');
+        } else {
+          const ls = localStorage;
+          const ss = sessionStorage;
+
+          window.addEventListener('storage', (e) => {
+            console.log(e.key + ':' + e.oldValue + '->' + e.newValue);
+          });
+
+          // ls.setItem('田中', 23);
+          // ls.setItem('佐藤', 43);
+          // ls.setItem('小松', 33);
+          // ls.setItem('若林', 21);
+
+          // for (let i = 0; i < ls.length; i++) {
+          //   const p = document.createElement('p');
+          //   p.textContent = ls.key(i) + ':' + ls.getItem(ls.key(i));
+          //   list.appendChild(p);
+          // }
+
+          // JSON <-> 文字列
+
+          // JSON.stringify objはそのまま保存出来ないので一旦文字列に変更するために使うメソッド
+
+          // JSON.parse 文字列をJSONに直す
+
+          // const user = {
+          //   name: '田中',
+          //   age: '34',
+          // };
+
+          // ls.setItem('user', JSON.stringify(user));
+          // console.dir(JSON.parse(ls.getItem('user')));
+        }
+      })();
+    </script>
+  </body>
+</html>
